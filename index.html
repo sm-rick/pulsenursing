@@ -485,6 +485,22 @@
             border: 2px solid var(--dark-pink);
         }
 
+        .invoice-meta-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .course-level-text {
+            font-size: 12px;
+            font-weight: 800;
+            color: #222;
+            background: #fff0f5;
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1.5px solid var(--border-color);
+        }
+
         .invoice-text {
             font-size: 12px;
             font-weight: 800;
@@ -550,7 +566,7 @@
         .card-actions {
             position: absolute;
             top: 10px;
-            right: 170px;
+            right: 220px;
             display: flex;
             gap: 6px;
             z-index: 10;
@@ -1278,6 +1294,8 @@
         }
 
         const name = studentNameInput.value;
+        const course = document.querySelector('input[name="course"]:checked').value;
+        const level = document.querySelector('input[name="level"]:checked').value;
         const delivery = document.querySelector('input[name="delivery"]:checked').value;
         const addressLine = document.getElementById('addressLine').value;
         const orderDate = orderDateInput.value;
@@ -1316,7 +1334,7 @@
         const timestamp = Date.now();
 
         const cardDataObj = {
-            cardId, serial: currentSerialNum, name, phone, delivery, district, upazilla, addressLine, orderDate, badgeText, invoiceNo, toAddressHTML, logoUrl, timestamp
+            cardId, serial: currentSerialNum, name, phone, course, level, delivery, district, upazilla, addressLine, orderDate, badgeText, invoiceNo, toAddressHTML, logoUrl, timestamp
         };
         
         allCardsData.unshift(cardDataObj);
@@ -1373,6 +1391,8 @@
                     const name = String(row['Name'] || row['Student Name'] || row['studentName'] || row['student_name'] || '').trim();
                     const phoneRaw = String(row['Phone'] || row['Phone Number'] || row['Mobile'] || row['phone'] || row['phone_number'] || '').trim();
                     const phone = phoneRaw.replace(/[^0-9]/g, '').slice(-11);
+                    const course = String(row['Course'] || row['course'] || 'BSC').trim();
+                    const level = String(row['Level'] || row['level'] || 'Admission').trim();
                     const district = String(row['District'] || row['district'] || '').trim();
                     const upazilla = String(row['Upazilla'] || row['Thana'] || row['Upazilla / Thana'] || row['upazilla'] || row['thana'] || '').trim();
                     const deliveryRaw = String(row['Delivery'] || row['Delivery System'] || row['delivery'] || '').toLowerCase();
@@ -1427,7 +1447,7 @@
                     const timestamp = Date.now();
 
                     const cardDataObj = {
-                        cardId, serial: currentSerialNum, name, phone, delivery, district: district || 'N/A', upazilla: upazilla || 'N/A', addressLine, orderDate, badgeText, invoiceNo, toAddressHTML, logoUrl, timestamp
+                        cardId, serial: currentSerialNum, name, phone, course, level, delivery, district: district || 'N/A', upazilla: upazilla || 'N/A', addressLine, orderDate, badgeText, invoiceNo, toAddressHTML, logoUrl, timestamp
                     };
 
                     allCardsData.unshift(cardDataObj);
@@ -1459,7 +1479,7 @@
         const cardHTML = `
             <div class="shipping-card" id="${data.cardId}">
                 <div class="card-actions">
-                    <button class="btn-edit" onclick="editCard('${data.cardId}', '${encodeURIComponent(data.name)}', '${data.phone}', '${data.delivery}', '${data.district}', '${data.upazilla}', '${encodeURIComponent(data.addressLine)}', '${data.orderDate}')">Edit</button>
+                    <button class="btn-edit" onclick="editCard('${data.cardId}', '${encodeURIComponent(data.name)}', '${data.phone}', '${data.course}', '${data.level}', '${data.delivery}', '${data.district}', '${data.upazilla}', '${encodeURIComponent(data.addressLine)}', '${data.orderDate}')">Edit</button>
                     <button class="btn-delete" onclick="removeCard('${data.cardId}')">Delete</button>
                 </div>
                 <div>
@@ -1473,7 +1493,10 @@
                         </div>
                         <div class="delivery-badge-group">
                             <div class="delivery-badge">${data.badgeText}</div>
-                            <div class="invoice-text">Inv: ${data.invoiceNo}</div>
+                            <div class="invoice-meta-row">
+                                <div class="course-level-text">${data.level} । ${data.course}</div>
+                                <div class="invoice-text">Inv: ${data.invoiceNo}</div>
+                            </div>
                         </div>
                     </div>
                     
@@ -1555,11 +1578,17 @@
         }
     });
 
-    function editCard(cardId, name, phone, delivery, district, upazilla, addressLine, orderDate) {
+    function editCard(cardId, name, phone, course, level, delivery, district, upazilla, addressLine, orderDate) {
         document.getElementById('orderDate').value = orderDate;
         document.getElementById('studentName').value = decodeURIComponent(name);
         document.getElementById('phoneNum').value = phone;
         
+        const courseRadio = document.querySelector(`input[name="course"][value="${course}"]`);
+        if(courseRadio) courseRadio.checked = true;
+
+        const levelRadio = document.querySelector(`input[name="level"][value="${level}"]`);
+        if(levelRadio) levelRadio.checked = true;
+
         const deliveryRadio = document.querySelector(`input[name="delivery"][value="${delivery}"]`);
         if(deliveryRadio) {
             deliveryRadio.checked = true;
@@ -1641,7 +1670,7 @@
             return;
         }
 
-        if (confirm(`Are you sure you want to delete ${checkboxes.length} selected record(s)?`)) {
+        if (confirm(`Are you sure you &want; to delete ${checkboxes.length} selected record(s)?`)) {
             checkboxes.forEach(cb => {
                 const cardId = cb.value;
                 allCardsData = allCardsData.filter(item => item.cardId !== cardId);
