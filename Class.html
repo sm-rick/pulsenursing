@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+
+<html lang="bn">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<meta name="theme-color"
+content="#020617">
+
+<title>
+Pulse Nursing Coaching — Foundation Batch
+</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link
+href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+background:#f1f5f9;
+font-family:'Inter','Hind Siliguri',sans-serif;
+}
+
+.font-bangla{
+font-family:'Hind Siliguri',sans-serif;
+}
+
+.app{
+width:100%;
+max-width:480px;
+margin:0 auto;
+min-height:100vh;
+background:#f8fafc;
+}
+
+button,
+a{
+-webkit-tap-highlight-color:transparent;
+}
+
+.progress{
+transition:width .3s ease;
+}
+
+.safe{
+word-break:break-word;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="app" id="app"></div>
+
+<script>
+
+const data =
+{"version":"v1.1","lastSaved":"১৬/৯/২০২৬, ১২:৫৭:১৩ AM","subjects":[{"name":"BANGLA","topics":[{"name":"বাংলা ভাষা ও ব্যাকরণ","done":false,"link":""},{"name":"ধ্বনির পরিবর্তন","done":false,"link":""},{"name":"সন্ধি","done":false,"link":""},{"name":"ণ-ত্ব ও ষ-ত্ব বিধান","done":false,"link":""},{"name":"বানান শুদ্ধিকরণ","done":false,"link":""},{"name":"শব্দ","done":false,"link":""},{"name":"পারিভাষিক শব্দ","done":false,"link":""},{"name":"বচন","done":false,"link":""},{"name":"নর ও নারীবাচক শব্দ","done":false,"link":""},{"name":"উপসর্গ","done":false,"link":""},{"name":"প্রকৃতি, প্রত্যয় ও ধাতু","done":false,"link":""},{"name":"পদ বিবেচনায় শব্দের শ্রেণিবিভাগ","done":false,"link":""},{"name":"সমাস","done":false,"link":""},{"name":"বাক্য প্রকরণ","done":false,"link":""},{"name":"কারক ও বিভক্তি","done":false,"link":""},{"name":"ক্রিয়ার কাল ও অনুজ্ঞা","done":false,"link":""},{"name":"উক্তি ও উক্তি পরিবর্তন","done":false,"link":""},{"name":"বিরাম চিহ্ন","done":false,"link":""},{"name":"বিপরীতার্থক শব্দ","done":false,"link":""},{"name":"সমার্থক বা প্রতিশব্দ","done":false,"link":""},{"name":"এক কথায় প্রকাশ","done":false,"link":""},{"name":"বাগধারা","done":false,"link":""},{"name":"প্রবাদ-প্রবচন/অনুবাদ","done":false,"link":""}]},{"name":"ENGLISH","topics":[{"name":"Parts of speech","done":false,"link":""},{"name":"Noun","done":false,"link":""},{"name":"Number","done":false,"link":""},{"name":"Gender","done":false,"link":""},{"name":"Pronoun","done":false,"link":""},{"name":"Adjective","done":false,"link":""},{"name":"Adverb","done":false,"link":""},{"name":"Verb","done":false,"link":""},{"name":"Tense","done":false,"link":""},{"name":"Right Form of Verb","done":false,"link":""},{"name":"Subject-verb agreement","done":false,"link":""},{"name":"Conjunction","done":false,"link":""},{"name":"Conditional Sentence","done":false,"link":""},{"name":"Sentence \u0026 Transformation","done":false,"link":""},{"name":"Voice","done":false,"link":""},{"name":"Narration","done":false,"link":""},{"name":"Use of Article","done":false,"link":""},{"name":"Comparison of Degree","done":false,"link":""},{"name":"Causative Verb","done":false,"link":""},{"name":"Agreement","done":false,"link":""},{"name":"Tag Question","done":false,"link":""},{"name":"Inversion","done":false,"link":""},{"name":"Embedded Question","done":false,"link":""},{"name":"Subjunctive Verb","done":false,"link":""},{"name":"Dangling Modifiers","done":false,"link":""},{"name":"Correction","done":false,"link":""},{"name":"Preposition","done":false,"link":""},{"name":"Synonyms \u0026 Antonyms","done":false,"link":""},{"name":"Idioms \u0026 Phrase","done":false,"link":""},{"name":"Group Verb","done":false,"link":""},{"name":"Spelling Mistakes","done":false,"link":""},{"name":"Translation \u0026 Proverbs","done":false,"link":""},{"name":"One Word Substitutions","done":false,"link":""},{"name":"Literature","done":false,"link":""}]},{"name":"MATH","topics":[]},{"name":"GENERAL KNOWLEDGE","topics":[{"name":"সাম্প্রতিক বিষয়াবলি","done":false,"link":""},{"name":"প্রাচীন বাংলা ও উপমহাদেশের ইতিহাস","done":false,"link":""},{"name":"ভাষা আন্দোলন থেকে মহান মুক্তিযুদ্ধ","done":false,"link":""},{"name":"বাংলাদেশের ভূ-প্রকৃতি","done":false,"link":""},{"name":"ক্ষুদ্র নৃ-গোষ্ঠী ও উপজাতি","done":false,"link":""},{"name":"বাংলাদেশের সংবিধান","done":false,"link":""},{"name":"বাংলাদেশের জাতীয় বিষয়াবলি","done":false,"link":""},{"name":"বাংলাদেশের শিক্ষা, অর্থনীতি ও যোগাযোগ ব্যবস্থা","done":false,"link":""},{"name":"বাংলাদেশের সম্পদ","done":false,"link":""},{"name":"ঐতিহাসিক স্থান, স্থাপনা ও প্রতিষ্ঠান","done":false,"link":""},{"name":"বিশ্বসভ্যতার ইতিহাস","done":false,"link":""},{"name":"বিশ্বের আলোচিত দেশসমূহ","done":false,"link":""},{"name":"আলোচিত যুদ্ধ, গেরিলা, গোয়েন্দা ও সামরিক সংগঠন","done":false,"link":""},{"name":"আন্তর্জাতিক সংস্থাসমূহ","done":false,"link":""},{"name":"আলোচিত চুক্তিসমূহ","done":false,"link":""},{"name":"বিশ্বের ভূ-প্রকৃতি ও অঞ্চল পরিচিতি","done":false,"link":""},{"name":"বিখ্যাত ব্যক্তিত্ব, গ্রন্থ ও উক্তি","done":false,"link":""},{"name":"শিল্প, সংস্কৃতি, সাহিত্য ও গণমাধ্যম","done":false,"link":""},{"name":"গুরুত্বপূর্ণ দিবসসমূহ","done":false,"link":""},{"name":"স্বাস্থ্য ও চিকিৎসা বিজ্ঞান","done":false,"link":""},{"name":"কম্পিউটার ও তথ্যপ্রযুক্তি","done":false,"link":""},{"name":"খেলাধুলা","done":false,"link":""},{"name":"পুরস্কার ও সম্মাননা","done":false,"link":""},{"name":"ABBREVIATION","done":false,"link":""},{"name":"মানবিক গুণাবলি","done":false,"link":""}]},{"name":"GENERAL SCIENCE","topics":[]},{"name":"CHEMISTY","topics":[]},{"name":"PHYSICS","topics":[]},{"name":"BIOLOGY","topics":[]}]};
+
+
+let currentView = "home";
+
+let currentSubject = null;
+
+
+function esc(value){
+
+return String(value ?? "")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+function stats(){
+
+let total=0;
+let completed=0;
+
+data.subjects.forEach(s=>{
+
+s.topics.forEach(t=>{
+
+total++;
+
+if(t.done) completed++;
+
+});
+
+});
+
+return {
+
+total,
+completed,
+remaining:total-completed,
+percent:total
+? Math.round(completed/total*100)
+:0
+
+};
+
+}
+
+
+function home(){
+
+currentView="home";
+
+currentSubject=null;
+
+render();
+
+}
+
+
+function subject(index){
+
+currentView="subject";
+
+currentSubject=index;
+
+render();
+
+}
+
+
+function render(){
+
+const app =
+document.getElementById("app");
+
+if(currentView==="subject"){
+
+renderSubject(app);
+
+}else{
+
+renderHome(app);
+
+}
+
+}
+
+
+function renderHome(app){
+
+const s=stats();
+
+const subjects =
+data.subjects.map((sub,index)=>{
+
+const total=sub.topics.length;
+
+const completed=
+sub.topics.filter(t=>t.done).length;
+
+const percent=
+total
+?Math.round(completed/total*100)
+:0;
+
+return `
+
+<button
+onclick="subject(${index})"
+class="w-full text-left bg-white rounded-2xl p-4 border border-slate-100 shadow-sm mb-2.5">
+
+<div class="flex items-center gap-3">
+
+<div class="w-11 h-11 rounded-xl bg-cyan-50 text-cyan-700 flex items-center justify-center">
+
+<i class="fa-solid fa-book-open"></i>
+
+</div>
+
+<div class="flex-1 min-w-0">
+
+<h3 class="font-bangla text-sm font-bold text-slate-800 truncate">
+${esc(sub.name)}
+</h3>
+
+<p class="text-[10px] text-slate-400">
+${completed} completed · ${total-completed} remaining
+</p>
+
+</div>
+
+<i class="fa-solid fa-chevron-right text-slate-300 text-xs"></i>
+
+</div>
+
+<div class="mt-3">
+
+<div class="flex justify-between mb-1">
+
+<span class="text-[9px] text-slate-400">
+Progress
+</span>
+
+<span class="text-[9px] font-bold text-cyan-700">
+${percent}%
+</span>
+
+</div>
+
+<div class="h-1.5 bg-slate-100 rounded-full overflow-hidden">
+
+<div
+class="h-full bg-cyan-600 rounded-full"
+style="width:${percent}%">
+</div>
+
+</div>
+
+</div>
+
+</button>
+
+`;
+
+}).join("");
+
+
+app.innerHTML=`
+
+<div class="bg-slate-950 text-white">
+
+<div class="px-5 pt-8 pb-5">
+
+<div class="flex items-center gap-3">
+
+<div class="w-11 h-11 bg-white rounded-xl flex items-center justify-center">
+
+<img
+src="https://i.ibb.co.com/Ld7snkkP/logo.png"
+class="w-8 h-8">
+
+</div>
+
+<div>
+
+<p class="font-bangla text-[10px] text-cyan-300">
+PULSE NURSING COACHING
+</p>
+
+<h1 class="font-bangla font-bold text-base">
+Foundation Batch
+</h1>
+
+</div>
+
+</div>
+
+<p class="font-bangla text-xs text-slate-400 mt-5">
+নার্সিং ভর্তি পরীক্ষা ২০২৬–২৭
+</p>
+
+<div class="flex justify-between items-center mt-1">
+
+<h2 class="font-bangla text-lg font-bold">
+আপনার প্রস্তুতি
+</h2>
+
+<span class="text-[9px] bg-white/10 px-2 py-1 rounded-full">
+${esc(data.version)}
+</span>
+
+</div>
+
+</div>
+
+<div class="px-5 pb-5">
+
+<div class="bg-white/10 rounded-2xl p-4">
+
+<div class="flex justify-between mb-2">
+
+<span class="font-bangla text-[10px] text-slate-300">
+Overall Progress
+</span>
+
+<strong class="text-sm text-cyan-300">
+${s.percent}%
+</strong>
+
+</div>
+
+<div class="h-2 bg-white/10 rounded-full overflow-hidden">
+
+<div
+class="h-full bg-cyan-400 rounded-full"
+style="width:${s.percent}%">
+</div>
+
+</div>
+
+<div class="grid grid-cols-3 gap-2 mt-4">
+
+<div>
+<strong class="block text-sm">
+${s.total}
+</strong>
+<span class="font-bangla text-[9px] text-slate-400">
+মোট Class
+</span>
+</div>
+
+<div>
+<strong class="block text-sm text-emerald-300">
+${s.completed}
+</strong>
+<span class="font-bangla text-[9px] text-slate-400">
+সম্পন্ন
+</span>
+</div>
+
+<div>
+<strong class="block text-sm text-amber-300">
+${s.remaining}
+</strong>
+<span class="font-bangla text-[9px] text-slate-400">
+বাকি
+</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="px-4 pt-5">
+
+<div class="flex justify-between items-end mb-3">
+
+<div>
+
+<h2 class="font-bangla font-bold text-sm">
+আপনার Subjects
+</h2>
+
+<p class="font-bangla text-[10px] text-slate-400">
+Subject নির্বাচন করুন
+</p>
+
+</div>
+
+<span class="text-[9px] bg-cyan-50 text-cyan-700 px-2 py-1 rounded-full font-bold">
+${data.subjects.length} Subjects
+</span>
+
+</div>
+
+${subjects}
+
+</div>
+
+
+<div class="text-center py-7">
+
+<p class="font-bangla text-[9px] text-slate-400">
+© Pulse Nursing Coaching
+</p>
+
+</div>
+
+`;
+
+}
+
+
+function renderSubject(app){
+
+const s=data.subjects[currentSubject];
+
+if(!s){
+
+home();
+
+return;
+
+}
+
+const total=s.topics.length;
+
+const completed=
+s.topics.filter(t=>t.done).length;
+
+const remaining=
+total-completed;
+
+const percent=
+total
+?Math.round(completed/total*100)
+:0;
+
+
+const topics=
+s.topics.map((t,i)=>`
+
+<div class="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm mb-2.5">
+
+<div class="flex gap-3">
+
+<div class="w-9 h-9 rounded-xl ${
+t.done
+?"bg-emerald-50 text-emerald-600"
+:"bg-amber-50 text-amber-600"
+} flex items-center justify-center shrink-0">
+
+${t.done
+?'<i class="fa-solid fa-check"></i>'
+:i+1}
+
+</div>
+
+<div class="flex-1">
+
+<span class="font-bangla text-[9px] font-bold ${
+t.done
+?"text-emerald-600"
+:"text-amber-600"
+}">
+
+${t.done?"COMPLETED":"UPCOMING"}
+
+</span>
+
+<h3 class="font-bangla text-sm font-bold text-slate-800 mt-1 safe">
+${esc(t.name)}
+</h3>
+
+<div class="mt-3">
+
+${t.link
+?`
+
+<a
+href="${esc(t.link)}"
+target="_blank"
+rel="noopener noreferrer"
+class="block bg-slate-950 text-white rounded-xl py-2.5 text-center text-[10px] font-bold">
+
+<i class="fa-solid fa-play mr-1"></i>
+Watch Recording
+
+</a>
+
+`
+:`
+
+<div class="bg-slate-50 text-slate-400 rounded-xl py-2.5 text-center text-[10px] font-bangla">
+Recording unavailable
+</div>
+
+`}
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+`).join("");
+
+
+app.innerHTML=`
+
+<div class="bg-slate-950 text-white">
+
+<div class="px-4 pt-7 pb-5">
+
+<button
+onclick="home()"
+class="flex items-center gap-2 text-slate-300 text-xs mb-5">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+<span class="font-bangla">
+সব Subjects
+</span>
+
+</button>
+
+<div class="flex items-center gap-3">
+
+<div class="w-12 h-12 rounded-2xl bg-cyan-500 flex items-center justify-center">
+
+<i class="fa-solid fa-book-open text-lg"></i>
+
+</div>
+
+<div class="min-w-0">
+
+<p class="font-bangla text-[9px] text-cyan-300">
+SUBJECT
+</p>
+
+<h1 class="font-bangla font-bold text-base">
+${esc(s.name)}
+</h1>
+
+</div>
+
+</div>
+
+<div class="mt-5">
+
+<div class="flex justify-between mb-2">
+
+<span class="font-bangla text-[10px] text-slate-400">
+Subject Progress
+</span>
+
+<strong class="text-sm text-cyan-300">
+${percent}%
+</strong>
+
+</div>
+
+<div class="h-2 bg-white/10 rounded-full">
+
+<div
+class="h-full bg-cyan-400 rounded-full"
+style="width:${percent}%">
+</div>
+
+</div>
+
+</div>
+
+<div class="grid grid-cols-3 gap-2 mt-4">
+
+<div class="bg-white/10 rounded-xl p-2.5">
+
+<strong class="block text-sm">
+${total}
+</strong>
+
+<span class="font-bangla text-[9px] text-slate-400">
+মোট
+</span>
+
+</div>
+
+<div class="bg-emerald-500/10 rounded-xl p-2.5">
+
+<strong class="block text-sm text-emerald-300">
+${completed}
+</strong>
+
+<span class="font-bangla text-[9px] text-slate-400">
+সম্পন্ন
+</span>
+
+</div>
+
+<div class="bg-amber-500/10 rounded-xl p-2.5">
+
+<strong class="block text-sm text-amber-300">
+${remaining}
+</strong>
+
+<span class="font-bangla text-[9px] text-slate-400">
+বাকি
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="px-4 pt-5">
+
+<div class="flex justify-between items-center mb-3">
+
+<div>
+
+<h2 class="font-bangla font-bold text-sm">
+Classes
+</h2>
+
+<p class="font-bangla text-[10px] text-slate-400">
+এই Subject-এর সকল Class
+</p>
+
+</div>
+
+<span class="text-[9px] bg-slate-100 px-2 py-1 rounded-full">
+${completed}/${total}
+</span>
+
+</div>
+
+${topics}
+
+</div>
+
+
+<div class="text-center py-7">
+
+<button
+onclick="home()"
+class="text-cyan-700 text-[10px] font-bold">
+
+<i class="fa-solid fa-house mr-1"></i>
+Back to Subjects
+
+</button>
+
+<p class="font-bangla text-[9px] text-slate-400 mt-4">
+© Pulse Nursing Coaching
+</p>
+
+</div>
+
+`;
+
+}
+
+
+render();
+
+</script>
+
+</div>
+
+</body>
+
+</html>
