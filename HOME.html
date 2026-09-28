@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Pulse Nursing | Foundation Batch 2026–27</title>
+<meta name="theme-color" content="#e51b23">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --red:#e51b23;
+  --red2:#bd1118;
+  --dark:#101114;
+  --text:#202228;
+  --muted:#777b84;
+  --bg:#f6f7f9;
+  --white:#fff;
+  --line:#ececef;
+  --green:#16a34a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Hind Siliguri",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-tap-highlight-color:transparent;
+}
+a{text-decoration:none;color:inherit}
+.page{width:100%;max-width:680px;margin:auto;background:#f6f7f9;min-height:100vh}
+.container{padding:0 16px}
+
+/* Header */
+.header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  height:68px;display:flex;align-items:center;justify-content:space-between;
+}
+.logo-wrap{display:flex;align-items:center;gap:10px}
+.logo{width:47px;height:47px;object-fit:contain}
+.brand b{
+  display:block;font:800 16px/1 "Poppins",sans-serif;color:var(--red);
+}
+.brand span{display:block;font-size:11px;color:#777;margin-top:4px}
+.member{
+  background:#fff0f1;color:var(--red);
+  border:1px solid #ffd5d8;border-radius:30px;
+  padding:6px 10px;font-size:10px;font-weight:700;
+}
+
+/* Hero */
+.hero{
+  padding:30px 16px 22px;
+  text-align:center;
+  background:
+    radial-gradient(circle at 90% 5%,#ffe0e3 0,transparent 32%),
+    linear-gradient(#fff,#fff8f8);
+}
+.pill{
+  display:inline-flex;align-items:center;gap:7px;
+  background:#fff;border:1px solid #ffd7da;color:var(--red);
+  border-radius:50px;padding:7px 13px;font-size:11px;font-weight:700;
+  box-shadow:0 5px 18px rgba(229,27,35,.06);
+}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--red)}
+.hero h1{
+  margin-top:17px;font-size:34px;line-height:1.18;
+  font-weight:800;color:var(--dark);
+}
+.hero h1 em{font-style:normal;color:var(--red)}
+.hero p{
+  max-width:510px;margin:10px auto 0;color:var(--muted);
+  font-size:14px;line-height:1.7;
+}
+.welcome{
+  margin-top:20px;padding:17px;text-align:left;border-radius:18px;
+  color:#fff;background:linear-gradient(135deg,#17181d,#292b32);
+  box-shadow:0 14px 30px rgba(0,0,0,.13);
+}
+.welcome small{color:#ff646b;font-size:10px;font-weight:700}
+.welcome h2{font-size:20px;margin:2px 0 3px}
+.welcome p{margin:0;color:#c6c8ce;font-size:12px}
+
+/* Main actions */
+.actions{padding:18px 16px 8px}
+.label{text-align:center;color:#777;font-size:12px;margin-bottom:10px;font-weight:600}
+.grid{display:grid;gap:11px}
+.action{
+  min-height:100px;border-radius:18px;color:#fff;
+  padding:16px;display:flex;align-items:center;gap:13px;
+  box-shadow:0 10px 25px rgba(0,0,0,.12);
+}
+.exam{background:linear-gradient(135deg,#e51b23,#b70f16)}
+.classes{background:linear-gradient(135deg,#15171c,#30333a)}
+.icon{
+  width:48px;height:48px;flex:none;border-radius:14px;
+  display:grid;place-items:center;background:rgba(255,255,255,.14);
+  font-size:23px;
+}
+.action-main{flex:1}
+.action-main small{display:block;opacity:.7;font-size:9px}
+.action-main strong{display:block;font-size:19px;line-height:1.2}
+.arrow{font-size:26px;opacity:.75}
+
+/* Sections */
+section{padding:28px 16px}
+.heading{text-align:center;margin-bottom:17px}
+.heading small{color:var(--red);font-size:11px;font-weight:700}
+.heading h2{font-size:23px;line-height:1.3;margin-top:2px}
+.heading p{font-size:12px;color:var(--muted);margin-top:3px}
+.features{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  padding:15px;box-shadow:0 5px 18px rgba(0,0,0,.035);
+}
+.card .ico{font-size:22px;margin-bottom:5px}
+.card b{display:block;font-size:14px}
+.card span{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+
+/* Notice */
+.notice{
+  background:#fff;border:1px solid var(--line);border-radius:18px;
+  padding:17px;box-shadow:0 7px 20px rgba(0,0,0,.04);
+}
+.notice-title{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.notice-icon{
+  width:35px;height:35px;border-radius:10px;background:#fff0f1;
+  display:grid;place-items:center;color:var(--red)
+}
+.notice h3{font-size:17px}
+.notice ul{list-style:none}
+.notice li{
+  position:relative;padding-left:20px;margin:8px 0;
+  color:#555963;font-size:12px;line-height:1.55;
+}
+.notice li:before{
+  content:"✓";position:absolute;left:0;color:var(--red);font-weight:800;
+}
+
+/* Contact */
+.contact{
+  background:var(--dark);color:#fff;border-radius:21px;padding:20px 17px;
+}
+.contact .heading h2{color:#fff}
+.contact .heading p{color:#aeb1b8}
+.person{padding:15px 0;border-top:1px solid rgba(255,255,255,.1)}
+.person:first-of-type{border-top:0}
+.role{font-size:11px;color:#ff646b;font-weight:700}
+.name{font-size:18px;font-weight:700;margin:2px 0 9px}
+.numbers{display:flex;flex-wrap:wrap;gap:7px}
+.btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:8px 11px;border-radius:10px;font-size:11px;font-weight:700;
+}
+.call{background:#fff;color:#111}
+.wa{background:var(--green);color:#fff}
+
+/* Social */
+.socials{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.social{
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:13px;display:flex;align-items:center;gap:9px;
+  font-size:12px;font-weight:700;
+}
+.social-icon{
+  width:34px;height:34px;border-radius:10px;color:#fff;
+  display:grid;place-items:center;font-family:Arial;font-weight:800
+}
+.fb{background:#1877f2}.yt{background:#f00}
+
+/* Footer */
+footer{
+  background:#0b0c0f;color:#999;text-align:center;
+  padding:25px 16px 90px;margin-top:4px
+}
+.footer-logo{width:58px;filter:brightness(0) invert(1);margin-bottom:6px}
+footer b{display:block;color:#fff;font-size:14px}
+footer p{font-size:10px;margin-top:3px}
+
+/* Bottom nav */
+.bottom{
+  position:fixed;left:0;right:0;bottom:0;z-index:100;
+  padding:8px 10px calc(8px + env(safe-area-inset-bottom));
+  background:rgba(255,255,255,.95);backdrop-filter:blur(14px);
+  border-top:1px solid var(--line);
+}
+.bottom-inner{max-width:660px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.bottom a{
+  padding:11px 7px;text-align:center;border-radius:12px;
+  font-size:12px;font-weight:800
+}
+.b-exam{background:var(--red);color:#fff}
+.b-class{background:#111318;color:#fff}
+
+@media(min-width:600px){
+  .grid{grid-template-columns:1fr 1fr}
+  .features{grid-template-columns:repeat(4,1fr)}
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="#" class="logo-wrap">
+      <img class="logo" src="https://i.ibb.co.com/Ld7snkkP/logo.png" alt="Pulse Nursing Coaching">
+      <div class="brand">
+        <b>PULSE NURSING</b>
+        <span>নার্স গড়ার প্রত্যয়ে</span>
+      </div>
+    </a>
+    <div class="member">PAID BATCH</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="pill"><span class="dot"></span> FOUNDATION BATCH • 2026–27</div>
+  <h1>নার্সিং ভর্তি প্রস্তুতি<br><em>২০২৬–২৭</em></h1>
+  <p>Pulse Nursing Coaching-এর Paid Foundation Batch-এর শিক্ষার্থীদের জন্য আপনার নিজস্ব Learning Hub.</p>
+
+  <div class="welcome">
+    <small>WELCOME TO YOUR LEARNING HUB</small>
+    <h2>স্বাগতম, Foundation Batch!</h2>
+    <p>এখান থেকেই আপনার Paid Class এবং Paid Exam System-এ সরাসরি প্রবেশ করুন।</p>
+  </div>
+</section>
+
+<section class="actions">
+  <div class="label">আপনার প্রয়োজনীয় সিস্টেম নির্বাচন করুন</div>
+  <div class="grid">
+    <a class="action exam" href="https://sm-rick.github.io/PulseExam/" target="_blank" rel="noopener">
+      <div class="icon">📝</div>
+      <div class="action-main">
+        <small>PULSE FOUNDATION</small>
+        <strong>Paid Exam System</strong>
+      </div>
+      <div class="arrow">›</div>
+    </a>
+
+    <a class="action classes" href="https://sm-rick.github.io/pulsenursing/Class.html" target="_blank" rel="noopener">
+      <div class="icon">🎓</div>
+      <div class="action-main">
+        <small>PULSE FOUNDATION</small>
+        <strong>Paid Class List</strong>
+      </div>
+      <div class="arrow">›</div>
+    </a>
+  </div>
+</section>
+
+<section>
+  <div class="heading">
+    <small>YOUR BENEFITS</small>
+    <h2>এক প্ল্যাটফর্মে আপনার প্রস্তুতি</h2>
+    <p>Foundation Batch-এর শিক্ষার্থীদের জন্য</p>
+  </div>
+
+  <div class="features">
+    <div class="card"><div class="ico">🎥</div><b>Paid Classes</b><span>নির্ধারিত ক্লাসে সহজ প্রবেশ</span></div>
+    <div class="card"><div class="ico">📝</div><b>Paid Exams</b><span>নিয়মিত পরীক্ষার ব্যবস্থা</span></div>
+    <div class="card"><div class="ico">📚</div><b>Structured Study</b><span>পরিকল্পিত প্রস্তুতি ব্যবস্থা</span></div>
+    <div class="card"><div class="ico">🎯</div><b>Admission Focus</b><span>২০২৬–২৭ ভর্তি পরীক্ষাকে লক্ষ্য করে</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="heading">
+    <small>IMPORTANT</small>
+    <h2>শিক্ষার্থীদের জন্য নির্দেশনা</h2>
+  </div>
+
+  <div class="notice">
+    <div class="notice-title">
+      <div class="notice-icon">ℹ️</div>
+      <h3>মনে রাখবেন</h3>
+    </div>
+    <ul>
+      <li>এই পেজটি শুধুমাত্র Pulse Nursing Foundation Batch-এর Paid শিক্ষার্থীদের জন্য।</li>
+      <li>Paid Class দেখতে “Paid Class List” বাটনে প্রবেশ করুন।</li>
+      <li>Paid Exam দিতে “Paid Exam System” বাটনে প্রবেশ করুন।</li>
+      <li>ক্লাস বা পরীক্ষা সংক্রান্ত সমস্যায় Admin & IT Support-এর সাথে যোগাযোগ করুন।</li>
+      <li>প্রয়োজনে নিচের Call অথবা WhatsApp বাটন ব্যবহার করুন।</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="contact">
+    <div class="heading">
+      <small>NEED HELP?</small>
+      <h2>যোগাযোগ করুন</h2>
+      <p>যেকোনো প্রয়োজনীয় সহায়তার জন্য আমাদের সাথে যোগাযোগ করুন।</p>
+    </div>
+
+    <div class="person">
+      <div class="role">ফাউন্ডার ও পরিচালক</div>
+      <div class="name">কাজী ইমরান</div>
+      <div class="numbers">
+        <a class="btn call" href="tel:01792439561">☎ 01792-439561</a>
+        <a class="btn wa" href="https://wa.me/8801792439561" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn call" href="tel:01985574715">☎ 01985574715</a>
+        <a class="btn wa" href="https://wa.me/8801985574715" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="person">
+      <div class="role">এডমিন ও IT Support</div>
+      <div class="name">সজীব মন্ডল</div>
+      <div class="numbers">
+        <a class="btn call" href="tel:01764890174">☎ 01764890174</a>
+        <a class="btn wa" href="https://wa.me/8801764890174" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="heading">
+    <small>FOLLOW PULSE</small>
+    <h2>আমাদের সাথে যুক্ত থাকুন</h2>
+  </div>
+
+  <div class="socials">
+    <a class="social" href="https://www.facebook.com/pulsenursingBD" target="_blank" rel="noopener">
+      <div class="social-icon fb">f</div> Facebook Page
+    </a>
+    <a class="social" href="https://www.youtube.com/@PulseNursing" target="_blank" rel="noopener">
+      <div class="social-icon yt">▶</div> YouTube Channel
+    </a>
+  </div>
+</section>
+
+<footer>
+  <img class="footer-logo" src="https://i.ibb.co.com/Ld7snkkP/logo.png" alt="Pulse Nursing">
+  <b>Pulse Nursing Coaching</b>
+  <p>নার্স গড়ার প্রত্যয়ে, স্বপ্ন পূরণের অঙ্গিকার।</p>
+  <p>© 2026 Pulse Nursing Coaching. All Rights Reserved.</p>
+</footer>
+
+<div class="bottom">
+  <div class="bottom-inner">
+    <a class="b-exam" href="https://sm-rick.github.io/PulseExam/" target="_blank" rel="noopener">📝 Paid Exam</a>
+    <a class="b-class" href="https://sm-rick.github.io/pulsenursing/Class.html" target="_blank" rel="noopener">🎓 Paid Classes</a>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
